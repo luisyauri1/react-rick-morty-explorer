@@ -1,0 +1,126 @@
+@use '../../variables.scss' as *;
+
+// Variables específicas del LanguageSelector
+$language-selector-height: 2.5rem;
+$language-selector-padding: $spacing-sm $spacing-md;
+$language-selector-border-width: 2px;
+$language-selector-transition-duration: 0.3s;
+$language-selector-scale-active: 0.95;
+$language-selector-bg-opacity: 0.05;
+
+.language-selector {
+  position: relative;
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-xs;
+    height: $language-selector-height;
+    padding: $language-selector-padding;
+    background-color: transparent;
+    border: $language-selector-border-width solid $color-gray-300;
+    border-radius: $border-radius-md;
+    cursor: pointer;
+    transition: all $language-selector-transition-duration ease;
+
+    .dark-theme & {
+      border-color: $color-gray-700;
+    }
+
+    &:hover {
+      border-color: $color-portal-green;
+      background-color: rgba($color-portal-green, $language-selector-bg-opacity);
+    }
+
+    &:focus-visible {
+      outline: $language-selector-border-width solid $color-portal-green;
+      outline-offset: $spacing-xs;
+    }
+
+    &:active {
+      transform: scale($language-selector-scale-active);
+    }
+  }
+
+  &__icon {
+    font-size: $font-size-lg;
+    color: $color-gray-600;
+    transition: color $language-selector-transition-duration ease;
+
+    .dark-theme & {
+      color: $color-gray-300;
+    }
+
+    .language-selector__button:hover & {
+      color: $color-portal-green;
+    }
+  }
+
+  &__text {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: $color-gray-600;
+    transition: color $language-selector-transition-duration ease;
+    text-transform: uppercase;
+    min-width: 2rem;
+
+    .dark-theme & {
+      color: $color-gray-300;
+    }
+
+    .language-selector__button:hover & {
+      color: $color-portal-green;
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + $spacing-xs);
+    right: 0;
+    background-color: $color-white;
+    border: $language-selector-border-width solid $color-gray-300;
+    border-radius: $border-radius-md;
+    list-style: none;
+    margin: 0;
+    padding: $spacing-xs;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    min-width: 5rem;
+
+    .dark-theme & {
+      background-color: $color-gray-800;
+      border-color: $color-gray-700;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &__option {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    background-color: transparent;
+    border: none;
+    border-radius: $border-radius-sm;
+    cursor: pointer;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $color-gray-600;
+    text-align: left;
+    transition: all $language-selector-transition-duration ease;
+
+    .dark-theme & {
+      color: $color-gray-300;
+    }
+
+    &:hover {
+      background-color: rgba($color-portal-green, $language-selector-bg-opacity);
+      color: $color-portal-green;
+    }
+
+    &--active {
+      color: $color-portal-green;
+      font-weight: $font-weight-bold;
+      background-color: rgba($color-portal-green, 0.1);
+    }
+  }
+}
