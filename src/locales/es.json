@@ -1,0 +1,22 @@
+{
+  "header": {
+    "logo": {
+      "title": "C-137",
+      "subtitle": "HUB DE INTELIGENCIA",
+      "ariaLabel": "Ir a página principal"
+    },
+    "nav": {
+      "characters": "PERSONAJES",
+      "locations": "UBICACIONES",
+      "episodes": "EPISODIOS",
+      "favorites": "FAVORITOS"
+    },
+    "actions": {
+      "changeLanguage": "Cambiar idioma",
+      "selectLanguage": "Seleccionar idioma",
+      "changeTheme": "Cambiar tema",
+      "lightMode": "Tema claro",
+      "darkMode": "Tema oscuro"
+    }
+  }
+}

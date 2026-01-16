@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { MdLanguage } from 'react-icons/md';
 import './LanguageSelector.scss';
 
@@ -20,28 +21,32 @@ const LANGUAGE_LABELS: Record<LanguageValue, string> = {
 };
 
 export default function LanguageSelector() {
-  const getInitialLanguage = (): LanguageValue => {
-    const savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+  const { i18n, t } = useTranslation();
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const currentLanguage = i18n.language as LanguageValue;
 
-    if (savedLanguage && Object.values(LANGUAGES).includes(savedLanguage as LanguageValue)) {
-      return savedLanguage as LanguageValue;
+  // Cerrar dropdown al hacer clic fuera
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
     }
 
-    const browserLanguage = navigator.language.split('-')[0];
-    if (browserLanguage === LANGUAGES.ES) return LANGUAGES.ES;
-    if (browserLanguage === LANGUAGES.ZH) return LANGUAGES.ZH;
-    return LANGUAGES.EN;
-  };
-
-  const [currentLanguage, setCurrentLanguage] = useState<LanguageValue>(getInitialLanguage);
-  const [isOpen, setIsOpen] = useState(false);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   const handleLanguageChange = (language: LanguageValue) => {
-    setCurrentLanguage(language);
+    i18n.changeLanguage(language);
     localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
     setIsOpen(false);
-
-    console.log('Idioma cambiado a:', language);
   };
 
   const toggleDropdown = () => {
@@ -49,11 +54,11 @@ export default function LanguageSelector() {
   };
 
   return (
-    <div className="language-selector">
+    <div className="language-selector" ref={dropdownRef}>
       <button
         className="language-selector__button"
         onClick={toggleDropdown}
-        aria-label="Seleccionar idioma"
+        aria-label={t('header.actions.selectLanguage')}
         aria-expanded={isOpen}
       >
         <MdLanguage className="language-selector__icon" aria-hidden="true" />

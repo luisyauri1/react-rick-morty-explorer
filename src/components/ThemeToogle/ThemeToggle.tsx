@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import './ThemeToggle.scss';
 
@@ -11,6 +12,8 @@ const THEME_VALUES = {
 } as const;
 
 export default function ThemeToggle() {
+  const { t } = useTranslation();
+
   const getInitialTheme = (): boolean => {
     const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
 
@@ -49,8 +52,8 @@ export default function ThemeToggle() {
     <button
       className="theme-toggle"
       onClick={handleToggle}
-      aria-label={isDark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
-      title={isDark ? 'Tema claro' : 'Tema oscuro'}
+      aria-label={isDark ? t('header.actions.lightMode') : t('header.actions.darkMode')}
+      title={isDark ? t('header.actions.lightMode') : t('header.actions.darkMode')}
     >
       <span className="theme-toggle__icon">
         {isDark ? <MdLightMode aria-hidden="true" /> : <MdDarkMode aria-hidden="true" />}

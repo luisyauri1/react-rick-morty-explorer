@@ -1,0 +1,22 @@
+{
+  "header": {
+    "logo": {
+      "title": "C-137",
+      "subtitle": "情报中心",
+      "ariaLabel": "前往主页"
+    },
+    "nav": {
+      "characters": "角色",
+      "locations": "位置",
+      "episodes": "剧集",
+      "favorites": "收藏夹"
+    },
+    "actions": {
+      "changeLanguage": "更改语言",
+      "selectLanguage": "选择语言",
+      "changeTheme": "更改主题",
+      "lightMode": "浅色模式",
+      "darkMode": "深色模式"
+    }
+  }
+}
