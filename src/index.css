@@ -1,5 +1,8 @@
 :root {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
   line-height: 1.5;
 }
 
@@ -12,7 +15,7 @@
 }
 
 /* Dark theme */
-:root[data-theme="dark"] {
+:root[data-theme='dark'] {
   --bg-primary: #1a1a1a;
   --bg-secondary: #2a2a2a;
   --text-primary: #ffffff;
@@ -29,5 +32,7 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
