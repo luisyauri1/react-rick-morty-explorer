@@ -1,4 +1,5 @@
 import Container from '../Container/Container';
+import HeaderActions from '../HeaderActions/HeaderActions';
 import Logo from '../Logo/Logo';
 import Navigation from '../Navigation/Navigation';
 import './Header.scss';
@@ -10,7 +11,7 @@ export default function Header() {
         <div className="header__content">
           <Logo />
           <Navigation />
-          <section>adicional</section>
+          <HeaderActions />
         </div>
       </Container>
     </header>

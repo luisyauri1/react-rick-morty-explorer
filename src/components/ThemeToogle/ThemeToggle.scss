@@ -1,0 +1,53 @@
+@use '../../variables.scss' as *;
+
+// Variables específicas del ThemeToggle
+$theme-toggle-size: 2.5rem;
+$theme-toggle-border-width: 2px;
+$theme-toggle-transition-duration: 0.3s;
+$theme-toggle-scale-active: 0.95;
+$theme-toggle-bg-opacity: 0.05;
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $theme-toggle-size;
+  height: $theme-toggle-size;
+  background-color: transparent;
+  border: $theme-toggle-border-width solid $color-gray-300;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: all $theme-toggle-transition-duration ease;
+
+  &:hover {
+    border-color: $color-portal-green;
+    background-color: rgba($color-portal-green, $theme-toggle-bg-opacity);
+  }
+
+  &:focus-visible {
+    outline: $theme-toggle-border-width solid $color-portal-green;
+    outline-offset: $spacing-xs;
+  }
+
+  &:active {
+    transform: scale($theme-toggle-scale-active);
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $font-size-lg;
+    color: $color-gray-600;
+    transition: color $theme-toggle-transition-duration ease;
+
+    .theme-toggle:hover & {
+      color: $color-portal-green;
+    }
+
+    svg {
+      width: $font-size-lg;
+      height: $font-size-lg;
+    }
+  }
+}
