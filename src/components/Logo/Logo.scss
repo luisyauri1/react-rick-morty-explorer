@@ -40,6 +40,10 @@ $logo-text-gap: 0.125rem; // ~2px
     line-height: $line-height-tight;
     margin: 0;
 
+    .dark-theme & {
+      color: $color-white;
+    }
+
     span {
       color: $color-portal-green;
     }
@@ -53,5 +57,9 @@ $logo-text-gap: 0.125rem; // ~2px
     text-transform: uppercase;
     line-height: 1;
     margin: 0;
+
+    .dark-theme & {
+      color: $color-gray-400;
+    } 
   }
 }

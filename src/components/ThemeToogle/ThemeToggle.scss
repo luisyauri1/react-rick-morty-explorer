@@ -19,6 +19,11 @@ $theme-toggle-bg-opacity: 0.05;
   cursor: pointer;
   transition: all $theme-toggle-transition-duration ease;
 
+  // Borde más claro en modo oscuro
+  .dark-theme & {
+    border-color: $color-gray-700;
+  }
+
   &:hover {
     border-color: $color-portal-green;
     background-color: rgba($color-portal-green, $theme-toggle-bg-opacity);
@@ -40,6 +45,10 @@ $theme-toggle-bg-opacity: 0.05;
     font-size: $font-size-lg;
     color: $color-gray-600;
     transition: color $theme-toggle-transition-duration ease;
+
+    .dark-theme & {
+      color: $color-gray-300;
+    }
 
     .theme-toggle:hover & {
       color: $color-portal-green;

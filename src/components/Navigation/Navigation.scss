@@ -21,11 +21,15 @@
   &__link {
     text-decoration: none;
     font-size: $font-size-sm;
-    font-weight: $font-weight-semibold;
+    font-weight: $font-weight-bold;
     color: $color-gray-600;
     transition: color 0.2s ease;
     padding: $spacing-xs $spacing-sm;
     border-radius: $border-radius-sm;
+
+    .dark-theme & {
+      color: $color-gray-300;
+    }
 
     &:hover {
       color: $color-portal-green;
@@ -34,6 +38,10 @@
     &--active {
       color: $color-portal-green;
       font-weight: $font-weight-bold;
+
+      .dark-theme & {
+        color: $color-portal-green;
+      }
     }
   }
 }
