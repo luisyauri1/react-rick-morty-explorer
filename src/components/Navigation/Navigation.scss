@@ -1,0 +1,39 @@
+@use '../../variables.scss' as *;
+@use '../../mixins.scss' as *;
+
+.navigation {
+  @include respond-to(md) {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+    gap: $spacing-lg;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    margin: 0;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $color-gray-600;
+    transition: color 0.2s ease;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+
+    &:hover {
+      color: $color-portal-green;
+    }
+
+    &--active {
+      color: $color-portal-green;
+      font-weight: $font-weight-bold;
+    }
+  }
+}

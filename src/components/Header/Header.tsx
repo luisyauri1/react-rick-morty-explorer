@@ -1,5 +1,6 @@
 import Container from '../Container/Container';
 import Logo from '../Logo/Logo';
+import Navigation from '../Navigation/Navigation';
 import './Header.scss';
 
 export default function Header() {
@@ -8,7 +9,7 @@ export default function Header() {
       <Container>
         <div className="header__content">
           <Logo />
-          <nav>Navegation</nav>
+          <Navigation />
           <section>adicional</section>
         </div>
       </Container>
