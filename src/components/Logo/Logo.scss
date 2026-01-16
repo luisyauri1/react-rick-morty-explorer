@@ -1,0 +1,57 @@
+@use '../../variables.scss' as *;
+
+// Variables específicas del Logo
+$logo-icon-size: 2.3rem;
+$logo-text-gap: 0.125rem; // ~2px
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  text-decoration: none;
+  cursor: pointer;
+
+  &__icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $color-portal-green;
+    border-radius: $border-radius-md;
+  }
+
+  &__icon {
+    width: $logo-icon-size;
+    height: $logo-icon-size;
+    padding: $spacing-sm;
+    color: $color-deep-citadel;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: $logo-text-gap;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-extrabold;
+    color: $color-deep-citadel;
+    letter-spacing: 0.03125rem;
+    line-height: $line-height-tight;
+    margin: 0;
+
+    span {
+      color: $color-portal-green;
+    }
+  }
+
+  &__subtitle {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-extrabold;
+    color: $color-gray-300;
+    letter-spacing: 0.0625rem;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0;
+  }
+}
