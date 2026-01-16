@@ -13,17 +13,17 @@ export default function Navigation() {
           </a>
         </li>
         <li className="navigation__item">
-          <a href="/" className="navigation__link">
+          <a href="/locations" className="navigation__link">
             {t('header.nav.locations')}
           </a>
         </li>
         <li className="navigation__item">
-          <a href="/" className="navigation__link">
+          <a href="/episodes" className="navigation__link">
             {t('header.nav.episodes')}
           </a>
         </li>
         <li className="navigation__item">
-          <a href="/" className="navigation__link">
+          <a href="/favorites" className="navigation__link">
             {t('header.nav.favorites')}
           </a>
         </li>
