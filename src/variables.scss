@@ -49,3 +49,21 @@ $font-weight-extrabold: 800;
 $line-height-tight: 1.2;
 $line-height-normal: 1.5;
 $line-height-relaxed: 1.75;
+
+// Dark Theme Colors
+:root.dark-theme {
+  --color-background: #{$color-gray-900};
+  --color-surface: #{$color-gray-800};
+  --color-text-primary: #{$color-gray-100};
+  --color-text-secondary: #{$color-gray-300};
+  --color-border: #{$color-gray-700};
+}
+
+// Light Theme Colors (default)
+:root {
+  --color-background: #{$color-white};
+  --color-surface: #{$color-gray-100};
+  --color-text-primary: #{$color-deep-citadel};
+  --color-text-secondary: #{$color-gray-600};
+  --color-border: #{$color-gray-300};
+}
