@@ -1,0 +1,9 @@
+@use '../../variables.scss' as *;
+
+.characters-page {
+  min-height: 100vh;
+
+  &__main {
+    padding: $spacing-2xl 0;
+  }
+}
