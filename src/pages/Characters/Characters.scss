@@ -2,13 +2,4 @@
 
 .characters-page {
   min-height: 100vh;
-
-  &__main {
-    padding: $spacing-2xl 0;
-  }
-
-  &__search {
-    margin-top: $spacing-xl;
-    margin-bottom: $spacing-2xl;
-  }
 }
