@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
 import { useTranslation } from 'react-i18next';
+import CharactersSection from '../../components/CharactersSection/CharactersSection';
 import Header from '../../components/Header/Header';
 import HeroTitle from '../../components/HeroTitle/HeroTitle';
 import PageHero from '../../components/PageHero/PageHero';
@@ -25,6 +26,7 @@ export default function Characters(): JSX.Element {
           />
           <SearchBar placeholder={t('characters.search.placeholder')} onSearch={handleSearch} />
         </PageHero>
+        <CharactersSection />
       </main>
     </div>
   );
