@@ -1,0 +1,58 @@
+@use '../../variables.scss' as *;
+@use '../../mixins.scss' as *;
+
+.search-bar {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+
+  &__icon {
+    position: absolute;
+    left: $spacing-lg;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-secondary);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include respond-to(md) {
+      left: $spacing-xl;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: $spacing-lg $spacing-lg $spacing-lg 3rem;
+    font-size: $font-size-md;
+    font-family: $font-family-base;
+    font-weight: $font-weight-bold;
+    color: var(--color-text-primary);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: $border-radius-xl;
+    outline: none;
+    transition: all $transition-base;
+
+    @include respond-to(md) {
+      padding: $spacing-xl $spacing-xl $spacing-xl 3.5rem;
+      font-size: $font-size-base;
+    }
+
+    &::placeholder {
+      color: var(--color-text-secondary);
+      opacity: 0.7;
+    }
+
+    &:focus {
+      border-color: $color-portal-green;
+      box-shadow: 0 0 0 3px rgba($color-portal-green, 0.1);
+    }
+
+    &:hover {
+      border-color: $color-portal-green;
+    }
+  }
+}

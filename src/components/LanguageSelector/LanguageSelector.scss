@@ -3,7 +3,7 @@
 // Variables específicas del LanguageSelector
 $language-selector-height: 2.5rem;
 $language-selector-padding: $spacing-sm $spacing-md;
-$language-selector-border-width: 2px;
+$language-selector-border-width: 1px;
 $language-selector-transition-duration: 0.3s;
 $language-selector-scale-active: 0.95;
 $language-selector-bg-opacity: 0.05;
@@ -19,7 +19,7 @@ $language-selector-bg-opacity: 0.05;
     height: $language-selector-height;
     padding: $language-selector-padding;
     background-color: transparent;
-    border: $language-selector-border-width solid $color-gray-300;
+    border: $language-selector-border-width solid var(--color-border);
     border-radius: $border-radius-md;
     cursor: pointer;
     transition: all $language-selector-transition-duration ease;

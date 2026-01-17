@@ -2,7 +2,7 @@
 
 // Variables específicas del ThemeToggle
 $theme-toggle-size: 2.5rem;
-$theme-toggle-border-width: 2px;
+$theme-toggle-border-width: 1px;
 $theme-toggle-transition-duration: 0.3s;
 $theme-toggle-scale-active: 0.95;
 $theme-toggle-bg-opacity: 0.05;
@@ -14,7 +14,7 @@ $theme-toggle-bg-opacity: 0.05;
   width: $theme-toggle-size;
   height: $theme-toggle-size;
   background-color: transparent;
-  border: $theme-toggle-border-width solid $color-gray-300;
+  border: $theme-toggle-border-width solid var(--color-border);
   border-radius: $border-radius-md;
   cursor: pointer;
   transition: all $theme-toggle-transition-duration ease;

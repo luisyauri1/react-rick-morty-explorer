@@ -24,6 +24,9 @@
       "title": "Analysis of",
       "highlight": "Critical Specimens",
       "description": "Centralized registry for variant classification, biological status monitoring, and real-time interdimensional location tracking."
+    },
+    "search": {
+      "placeholder": "Identify specimen..."
     }
   }
 }

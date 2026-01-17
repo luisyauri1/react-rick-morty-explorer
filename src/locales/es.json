@@ -24,6 +24,9 @@
       "title": "Análisis de",
       "highlight": "Especímenes Críticos",
       "description": "Registro centralizado para la clasificación de variantes, monitoreo de estados biológicos y localización interdimensional en tiempo real."
+    },
+    "search": {
+      "placeholder": "Identificar espécimen..."
     }
   }
 }

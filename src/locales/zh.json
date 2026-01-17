@@ -24,6 +24,9 @@
       "title": "分析",
       "highlight": "关键样本",
       "description": "用于变体分类、生物状态监测和实时跨维度定位追踪的集中登记系统。"
+    },
+    "search": {
+      "placeholder": "识别样本..."
     }
   }
 }
