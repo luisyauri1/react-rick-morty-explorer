@@ -1,4 +1,4 @@
-@use '../../variables.scss' as *;
+@use '../../../variables.scss' as *;
 
 // Variables específicas del Logo
 $logo-icon-size: 2.3rem;
@@ -60,6 +60,6 @@ $logo-text-gap: 0.125rem; // ~2px
 
     .dark-theme & {
       color: $color-gray-400;
-    } 
+    }
   }
 }

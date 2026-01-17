@@ -1,7 +1,7 @@
-import Container from '../Container/Container';
-import HeaderActions from '../HeaderActions/HeaderActions';
-import Logo from '../Logo/Logo';
-import Navigation from '../Navigation/Navigation';
+import Container from '../../atoms/Container/Container';
+import Logo from '../../atoms/Logo/Logo';
+import HeaderActions from '../../molecules/HeaderActions/HeaderActions';
+import Navigation from '../../molecules/Navigation/Navigation';
 import './Header.scss';
 
 export default function Header() {

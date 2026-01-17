@@ -1,11 +1,11 @@
 import type { JSX } from 'react';
 import { useTranslation } from 'react-i18next';
-import CharactersSection from '../../components/CharactersSection/CharactersSection';
-import Header from '../../components/Header/Header';
-import HeroTitle from '../../components/HeroTitle/HeroTitle';
-import PageHero from '../../components/PageHero/PageHero';
-import SearchBar from '../../components/SearchBar/SearchBar';
+import HeroTitle from '../../components/atoms/HeroTitle/HeroTitle';
+import SearchBar from '../../components/molecules/SearchBar/SearchBar';
+import Header from '../../components/organisms/Header/Header';
+import PageHero from '../../components/organisms/PageHero/PageHero';
 import './Characters.scss';
+import CharactersSection from './components/CharactersSection/CharactersSection';
 
 export default function Characters(): JSX.Element {
   const { t } = useTranslation();
