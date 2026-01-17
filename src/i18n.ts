@@ -1,8 +1,8 @@
+import en from '@/locales/en.json';
+import es from '@/locales/es.json';
+import zh from '@/locales/zh.json';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import en from './locales/en.json';
-import es from './locales/es.json';
-import zh from './locales/zh.json';
 
 const LANGUAGE_STORAGE_KEY = 'language';
 const VALID_LANGUAGES = ['es', 'en', 'zh'];

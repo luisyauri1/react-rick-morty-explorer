@@ -1,6 +1,6 @@
+import '@/test/mocks/i18n';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import '../../test/mocks/i18n';
 import LanguageSelector from './LanguageSelector';
 
 describe('LanguageSelector', () => {

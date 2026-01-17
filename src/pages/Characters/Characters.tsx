@@ -1,9 +1,9 @@
+import HeroTitle from '@atoms/HeroTitle/HeroTitle';
+import SearchBar from '@molecules/SearchBar/SearchBar';
+import Header from '@organisms/Header/Header';
+import PageHero from '@organisms/PageHero/PageHero';
 import type { JSX } from 'react';
 import { useTranslation } from 'react-i18next';
-import HeroTitle from '../../components/atoms/HeroTitle/HeroTitle';
-import SearchBar from '../../components/molecules/SearchBar/SearchBar';
-import Header from '../../components/organisms/Header/Header';
-import PageHero from '../../components/organisms/PageHero/PageHero';
 import './Characters.scss';
 import CharactersSection from './components/CharactersSection/CharactersSection';
 

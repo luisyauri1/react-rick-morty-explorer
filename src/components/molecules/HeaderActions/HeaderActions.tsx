@@ -1,5 +1,5 @@
-import LanguageSelector from '../LanguageSelector/LanguageSelector';
-import ThemeToggle from '../ThemeToogle/ThemeToggle';
+import LanguageSelector from '@molecules/LanguageSelector/LanguageSelector';
+import ThemeToggle from '@molecules/ThemeToogle/ThemeToggle';
 import './HeaderActions.scss';
 
 export default function HeaderActions() {

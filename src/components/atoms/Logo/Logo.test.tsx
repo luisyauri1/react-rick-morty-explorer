@@ -1,6 +1,6 @@
+import '@/test/mocks/i18n';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import '../../../test/mocks/i18n';
 import Logo from './Logo';
 
 describe('Logo', () => {

@@ -1,7 +1,7 @@
+import en from '@/locales/en.json';
+import es from '@/locales/es.json';
+import zh from '@/locales/zh.json';
 import { vi } from 'vitest';
-import en from '../../locales/en.json';
-import es from '../../locales/es.json';
-import zh from '../../locales/zh.json';
 
 type TranslationLanguage = 'es' | 'en' | 'zh';
 type TranslationValue = string | Record<string, unknown>;

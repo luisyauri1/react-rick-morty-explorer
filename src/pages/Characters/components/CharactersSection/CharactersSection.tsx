@@ -1,6 +1,6 @@
+import CharacterResults from '@pages/Characters/components/CharacterResults/CharacterResults';
+import CharactersFilters from '@pages/Characters/components/CharactersFilters/CharactersFilters';
 import type { JSX } from 'react';
-import CharacterResults from '../CharacterResults/CharacterResults';
-import CharactersFilters from '../CharactersFilters/CharactersFilters';
 import './CharactersSection.scss';
 
 export default function CharactersSection(): JSX.Element {

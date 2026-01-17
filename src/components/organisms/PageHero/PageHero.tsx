@@ -1,5 +1,5 @@
+import Container from '@atoms/Container/Container';
 import type { JSX, ReactNode } from 'react';
-import Container from '../../atoms/Container/Container';
 import './PageHero.scss';
 
 interface PageHeroProps {
