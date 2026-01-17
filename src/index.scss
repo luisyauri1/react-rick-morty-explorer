@@ -11,24 +11,15 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: $font-size-base;
 
-  @include respond-to(md) {
-    font-size: 14px;
-  }
-
-  @include respond-to(xs) {
-    font-size: 12px;
-  }
-
-  @media (min-width: 1440px) {
-    font-size: 18px;
+  @include respond-to(lg) {
+    font-size: $font-size-lg;
   }
 }
 
 body {
   font-family: $font-family-base;
-  line-height: $line-height-base;
   color: var(--color-text-primary);
   background-color: var(--color-background);
   min-height: 100vh;

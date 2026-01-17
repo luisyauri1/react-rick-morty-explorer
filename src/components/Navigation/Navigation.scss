@@ -2,8 +2,10 @@
 @use '../../mixins.scss' as *;
 
 .navigation {
+  display: none;
+
   @include respond-to(md) {
-    display: none;
+    display: flex;
   }
 
   &__list {
@@ -21,7 +23,7 @@
   &__link {
     text-decoration: none;
     font-size: $font-size-sm;
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight-extrabold;
     color: $color-gray-600;
     transition: color 0.2s ease;
     padding: $spacing-xs $spacing-sm;
@@ -37,7 +39,7 @@
 
     &--active {
       color: $color-portal-green;
-      font-weight: $font-weight-bold;
+      font-weight: $font-weight-extrabold;
 
       .dark-theme & {
         color: $color-portal-green;

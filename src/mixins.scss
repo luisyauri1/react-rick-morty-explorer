@@ -1,27 +1,27 @@
 // Mixins para Media Queries (Mobile First)
 @mixin respond-to($breakpoint) {
   @if $breakpoint == xs {
-    @media (max-width: 480px) {
+    @media (min-width: 481px) {
       @content;
     }
   } @else if $breakpoint == sm {
-    @media (max-width: 640px) {
+    @media (min-width: 641px) {
       @content;
     }
   } @else if $breakpoint == md {
-    @media (max-width: 768px) {
+    @media (min-width: 769px) {
       @content;
     }
   } @else if $breakpoint == lg {
-    @media (max-width: 1024px) {
+    @media (min-width: 1025px) {
       @content;
     }
   } @else if $breakpoint == xl {
-    @media (max-width: 1280px) {
+    @media (min-width: 1281px) {
       @content;
     }
   } @else if $breakpoint == 2xl {
-    @media (max-width: 1536px) {
+    @media (min-width: 1537px) {
       @content;
     }
   }
