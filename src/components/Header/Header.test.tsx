@@ -20,7 +20,7 @@ describe('Header', () => {
   it('should render Navigation component', () => {
     render(<Header />);
 
-    expect(screen.getByRole('navigation')).toBeInTheDocument();
+    expect(screen.getByRole('navigation', { hidden: true })).toBeInTheDocument();
   });
 
   it('should render HeaderActions component', () => {

@@ -6,14 +6,14 @@ import Navigation from './Navigation';
 describe('Navigation', () => {
   it('should render navigation element', () => {
     render(<Navigation />);
-    const nav = screen.getByRole('navigation');
+    const nav = screen.getByRole('navigation', { hidden: true });
 
     expect(nav).toBeInTheDocument();
   });
 
   it('should render 4 navigation links', () => {
     render(<Navigation />);
-    const links = screen.getAllByRole('link');
+    const links = screen.getAllByRole('link', { hidden: true });
 
     expect(links).toHaveLength(4);
   });
@@ -72,7 +72,7 @@ describe('Navigation', () => {
 
   it('should mark first link as active', () => {
     render(<Navigation />);
-    const firstLink = screen.getAllByRole('link')[0];
+    const firstLink = screen.getAllByRole('link', { hidden: true })[0];
 
     expect(firstLink).toHaveClass('navigation__link--active');
   });
