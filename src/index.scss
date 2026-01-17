@@ -1,16 +1,40 @@
+@use './variables.scss' as *;
+@use './mixins.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
-* {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+
+  @include respond-to(md) {
+    font-size: 14px;
+  }
+
+  @include respond-to(xs) {
+    font-size: 12px;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 18px;
+  }
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--color-background);
+  font-family: $font-family-base;
+  line-height: $line-height-base;
   color: var(--color-text-primary);
+  background-color: var(--color-background);
+  min-height: 100vh;
   transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+    background-color $transition-base,
+    color $transition-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
