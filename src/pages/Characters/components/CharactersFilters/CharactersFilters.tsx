@@ -10,33 +10,42 @@ export default function CharactersFilters(): JSX.Element {
 
   return (
     <div className="characters-filters">
-      <h2>{t('filters.title')}</h2>
+      <h2 className="characters-filters__title">{t('filters.title')}</h2>
 
-      <Select
-        labelKey="filters.status.label"
-        id="status"
-        name="status"
-        options={FILTER_OPTIONS.status}
-        placeholderKey="filters.status.placeholder"
-      />
+      <div className="characters-filters__content">
+        <Select
+          labelKey="filters.status.label"
+          id="status"
+          name="status"
+          options={FILTER_OPTIONS.status}
+          placeholderKey="filters.status.placeholder"
+          size="sm"
+        />
 
-      <Select
-        labelKey="filters.gender.label"
-        id="gender"
-        name="gender"
-        options={FILTER_OPTIONS.gender}
-        placeholderKey="filters.gender.placeholder"
-      />
+        <Select
+          labelKey="filters.gender.label"
+          id="gender"
+          name="gender"
+          options={FILTER_OPTIONS.gender}
+          placeholderKey="filters.gender.placeholder"
+          size="sm"
+        />
 
-      <Select
-        labelKey="filters.species.label"
-        id="species"
-        name="species"
-        options={FILTER_OPTIONS.species}
-        placeholderKey="filters.species.placeholder"
-      />
+        <Select
+          labelKey="filters.species.label"
+          id="species"
+          name="species"
+          options={FILTER_OPTIONS.species}
+          placeholderKey="filters.species.placeholder"
+          size="sm"
+        />
+      </div>
 
-      <Button variant="outline">{t('filters.resetButton')}</Button>
+      <div className="characters-filters__actions">
+        <Button variant="outline" fullWidth>
+          {t('filters.resetButton')}
+        </Button>
+      </div>
     </div>
   );
 }

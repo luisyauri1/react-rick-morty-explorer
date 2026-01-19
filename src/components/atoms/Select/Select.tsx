@@ -8,16 +8,23 @@ interface SelectOption {
   readonly labelKey: string;
 }
 
-interface SelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'placeholder'> {
+type SelectSize = 'sm' | 'md' | 'lg';
+
+interface SelectProps extends Omit<
+  SelectHTMLAttributes<HTMLSelectElement>,
+  'placeholder' | 'size'
+> {
   labelKey?: string;
   options: readonly SelectOption[];
   placeholderKey?: string;
+  size?: SelectSize;
 }
 
 export default function Select({
   labelKey,
   options,
   placeholderKey,
+  size = 'md',
   id,
   ...props
 }: SelectProps): JSX.Element {
@@ -28,12 +35,12 @@ export default function Select({
   return (
     <div className="select-container">
       {labelKey && (
-        <label htmlFor={selectId} className="select-label">
+        <label htmlFor={selectId} className={`select-label select-label--${size}`}>
           {t(labelKey)}
         </label>
       )}
       <div className="select-wrapper">
-        <select className="select" id={selectId} {...props}>
+        <select className={`select select--${size}`} id={selectId} {...props}>
           {placeholderKey && <option value="">{t(placeholderKey)}</option>}
           {options.map(option => (
             <option key={option.value} value={option.value}>

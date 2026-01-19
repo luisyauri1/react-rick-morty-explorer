@@ -6,15 +6,17 @@ import './CharactersSection.scss';
 
 export default function CharactersSection(): JSX.Element {
   return (
-    <Container>
-      <div className="characters-section">
-        <aside className="characters-section__filters">
-          <CharactersFilters />
-        </aside>
-        <main className="characters-section__results">
-          <CharacterResults />
-        </main>
-      </div>
-    </Container>
+    <section className="characters-section-wrapper">
+      <Container>
+        <div className="characters-section">
+          <aside className="characters-section__filters">
+            <CharactersFilters />
+          </aside>
+          <main className="characters-section__results">
+            <CharacterResults />
+          </main>
+        </div>
+      </Container>
+    </section>
   );
 }

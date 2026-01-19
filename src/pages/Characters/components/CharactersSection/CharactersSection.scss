@@ -1,6 +1,15 @@
 @use '@styles/variables' as *;
 @use '@styles/mixins' as *;
 
+.characters-section-wrapper {
+  background-color: #{$color-gray-100};
+  padding: $spacing-2xl 0;
+
+  :root.dark-theme & {
+    background-color: var(--color-background);
+  }
+}
+
 .characters-section {
   display: flex;
   flex-direction: column;
