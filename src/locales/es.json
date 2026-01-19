@@ -28,5 +28,36 @@
     "search": {
       "placeholder": "Identificar espécimen..."
     }
+  },
+  "filters": {
+    "title": "Módulos Filtrado",
+    "status": {
+      "label": "Estado",
+      "placeholder": "Todos los estados",
+      "alive": "Vivo",
+      "dead": "Muerto",
+      "unknown": "Desconocido"
+    },
+    "gender": {
+      "label": "Género",
+      "placeholder": "Todos los géneros",
+      "female": "Femenino",
+      "male": "Masculino",
+      "genderless": "Sin género",
+      "unknown": "Desconocido"
+    },
+    "species": {
+      "label": "Especie",
+      "placeholder": "Todas las especies",
+      "human": "Humano",
+      "alien": "Alienígena",
+      "humanoid": "Humanoide",
+      "robot": "Robot",
+      "cronenberg": "Cronenberg",
+      "animal": "Animal",
+      "mythological": "Criatura Mitológica",
+      "poopybutthole": "Poopybutthole",
+      "disease": "Enfermedad"
+    }
   }
 }

@@ -28,5 +28,36 @@
     "search": {
       "placeholder": "识别样本..."
     }
+  },
+  "filters": {
+    "title": "过滤模块",
+    "status": {
+      "label": "状态",
+      "placeholder": "所有状态",
+      "alive": "活着",
+      "dead": "死亡",
+      "unknown": "未知"
+    },
+    "gender": {
+      "label": "性别",
+      "placeholder": "所有性别",
+      "female": "女性",
+      "male": "男性",
+      "genderless": "无性别",
+      "unknown": "未知"
+    },
+    "species": {
+      "label": "物种",
+      "placeholder": "所有物种",
+      "human": "人类",
+      "alien": "外星人",
+      "humanoid": "类人",
+      "robot": "机器人",
+      "cronenberg": "克隆伯格",
+      "animal": "动物",
+      "mythological": "神话生物",
+      "poopybutthole": "屁眼先生",
+      "disease": "疾病"
+    }
   }
 }

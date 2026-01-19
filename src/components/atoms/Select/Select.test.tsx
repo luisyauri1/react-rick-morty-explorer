@@ -4,9 +4,9 @@ import Select from './Select';
 
 describe('Select', () => {
   const mockOptions = [
-    { value: 'option1', label: 'Option 1' },
-    { value: 'option2', label: 'Option 2' },
-    { value: 'option3', label: 'Option 3' },
+    { value: 'option1', labelKey: 'test.option1' },
+    { value: 'option2', labelKey: 'test.option2' },
+    { value: 'option3', labelKey: 'test.option3' },
   ];
 
   it('should render select element', () => {
@@ -16,9 +16,9 @@ describe('Select', () => {
   });
 
   it('should render label when provided', () => {
-    render(<Select label="Test Label" options={mockOptions} />);
+    render(<Select labelKey="test.label" options={mockOptions} />);
 
-    expect(screen.getByText('Test Label')).toBeInTheDocument();
+    expect(screen.getByText('test.label')).toBeInTheDocument();
   });
 
   it('should not render label when not provided', () => {
@@ -27,32 +27,32 @@ describe('Select', () => {
     expect(container.querySelector('.select-label')).not.toBeInTheDocument();
   });
 
-  it('should render default placeholder', () => {
-    render(<Select options={mockOptions} />);
+  it('should render placeholder when provided', () => {
+    render(<Select options={mockOptions} placeholderKey="test.placeholder" />);
 
-    expect(screen.getByText('Seleccionar')).toBeInTheDocument();
+    expect(screen.getByText('test.placeholder')).toBeInTheDocument();
   });
 
-  it('should render custom placeholder when provided', () => {
-    render(<Select options={mockOptions} placeholder="Elige una opción" />);
+  it('should not render placeholder option when placeholderKey not provided', () => {
+    render(<Select options={mockOptions} />);
 
-    expect(screen.getByText('Elige una opción')).toBeInTheDocument();
+    expect(screen.getAllByRole('option')).toHaveLength(3);
   });
 
   it('should render all options', () => {
     render(<Select options={mockOptions} />);
 
-    expect(screen.getByText('Option 1')).toBeInTheDocument();
+    expect(screen.getByText('test.option1')).toBeInTheDocument();
   });
 
   it('should render correct number of options including placeholder', () => {
-    render(<Select options={mockOptions} />);
+    render(<Select options={mockOptions} placeholderKey="test.placeholder" />);
 
     expect(screen.getAllByRole('option')).toHaveLength(4);
   });
 
   it('should apply custom id when provided', () => {
-    render(<Select id="custom-id" options={mockOptions} label="Label" />);
+    render(<Select id="custom-id" options={mockOptions} labelKey="test.label" />);
 
     expect(screen.getByRole('combobox')).toHaveAttribute('id', 'custom-id');
   });
@@ -72,12 +72,12 @@ describe('Select', () => {
   it('should render option with correct value attribute', () => {
     render(<Select options={mockOptions} />);
 
-    expect(screen.getByText('Option 1')).toHaveAttribute('value', 'option1');
+    expect(screen.getByText('test.option1')).toHaveAttribute('value', 'option1');
   });
 
   it('should render placeholder option with empty value', () => {
-    render(<Select options={mockOptions} />);
+    render(<Select options={mockOptions} placeholderKey="test.placeholder" />);
 
-    expect(screen.getByText('Seleccionar')).toHaveAttribute('value', '');
+    expect(screen.getByText('test.placeholder')).toHaveAttribute('value', '');
   });
 });

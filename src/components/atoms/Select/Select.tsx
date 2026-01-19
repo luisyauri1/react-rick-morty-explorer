@@ -1,41 +1,43 @@
 import type { JSX, SelectHTMLAttributes } from 'react';
 import { useId } from 'react';
+import { useTranslation } from 'react-i18next';
 import './Select.scss';
 
 interface SelectOption {
-  value: string;
-  label: string;
+  readonly value: string;
+  readonly labelKey: string;
 }
 
-interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
-  label?: string;
-  options: SelectOption[];
-  placeholder?: string;
+interface SelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'placeholder'> {
+  labelKey?: string;
+  options: readonly SelectOption[];
+  placeholderKey?: string;
 }
 
 export default function Select({
-  label,
+  labelKey,
   options,
-  placeholder = 'Seleccionar',
+  placeholderKey,
   id,
   ...props
 }: SelectProps): JSX.Element {
+  const { t } = useTranslation();
   const generatedId = useId();
   const selectId = id || generatedId;
 
   return (
     <div className="select-container">
-      {label && (
+      {labelKey && (
         <label htmlFor={selectId} className="select-label">
-          {label}
+          {t(labelKey)}
         </label>
       )}
       <div className="select-wrapper">
         <select className="select" id={selectId} {...props}>
-          <option value="">{placeholder}</option>
+          {placeholderKey && <option value="">{t(placeholderKey)}</option>}
           {options.map(option => (
             <option key={option.value} value={option.value}>
-              {option.label}
+              {t(option.labelKey)}
             </option>
           ))}
         </select>

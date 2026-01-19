@@ -28,5 +28,36 @@
     "search": {
       "placeholder": "Identify specimen..."
     }
+  },
+  "filters": {
+    "title": "Filter Modules",
+    "status": {
+      "label": "Status",
+      "placeholder": "All statuses",
+      "alive": "Alive",
+      "dead": "Dead",
+      "unknown": "Unknown"
+    },
+    "gender": {
+      "label": "Gender",
+      "placeholder": "All genders",
+      "female": "Female",
+      "male": "Male",
+      "genderless": "Genderless",
+      "unknown": "Unknown"
+    },
+    "species": {
+      "label": "Species",
+      "placeholder": "All species",
+      "human": "Human",
+      "alien": "Alien",
+      "humanoid": "Humanoid",
+      "robot": "Robot",
+      "cronenberg": "Cronenberg",
+      "animal": "Animal",
+      "mythological": "Mythological Creature",
+      "poopybutthole": "Poopybutthole",
+      "disease": "Disease"
+    }
   }
 }
