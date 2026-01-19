@@ -31,6 +31,7 @@
   },
   "filters": {
     "title": "Filter Modules",
+    "resetButton": "Reset Scanner",
     "status": {
       "label": "Status",
       "placeholder": "All statuses",

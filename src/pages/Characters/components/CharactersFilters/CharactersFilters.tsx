@@ -1,3 +1,4 @@
+import Button from '@/components/atoms/Button/Button';
 import { FILTER_OPTIONS } from '@/constants/filterOptions';
 import Select from '@atoms/Select/Select';
 import type { JSX } from 'react';
@@ -35,7 +36,7 @@ export default function CharactersFilters(): JSX.Element {
         placeholderKey="filters.species.placeholder"
       />
 
-      <button type="button">Reiniciar Escáner</button>
+      <Button variant="outline">{t('filters.resetButton')}</Button>
     </div>
   );
 }

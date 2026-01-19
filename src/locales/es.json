@@ -31,6 +31,7 @@
   },
   "filters": {
     "title": "Módulos Filtrado",
+    "resetButton": "Reiniciar Escáner",
     "status": {
       "label": "Estado",
       "placeholder": "Todos los estados",
