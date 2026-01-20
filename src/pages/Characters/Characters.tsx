@@ -1,8 +1,8 @@
+import type { CharacterFilters } from '@/types/character';
 import HeroTitle from '@atoms/HeroTitle/HeroTitle';
 import SearchBar from '@molecules/SearchBar/SearchBar';
 import Header from '@organisms/Header/Header';
 import PageHero from '@organisms/PageHero/PageHero';
-import type { CharacterFilters } from '@/types/character';
 import type { JSX } from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -46,7 +46,11 @@ export default function Characters(): JSX.Element {
             highlight={t('characters.hero.highlight')}
             description={t('characters.hero.description')}
           />
-          <SearchBar placeholder={t('characters.search.placeholder')} onSearch={handleSearch} />
+          <SearchBar
+            placeholder={t('characters.search.placeholder')}
+            onSearch={handleSearch}
+            value={filters.name ?? ''}
+          />
         </PageHero>
         <CharactersSection
           filters={filters}

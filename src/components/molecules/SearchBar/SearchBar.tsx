@@ -6,9 +6,10 @@ import './SearchBar.scss';
 interface SearchBarProps {
   placeholder?: string;
   onSearch?: (value: string) => void;
+  value?: string;
 }
 
-export default function SearchBar({ placeholder, onSearch }: SearchBarProps): JSX.Element {
+export default function SearchBar({ placeholder, onSearch, value }: SearchBarProps): JSX.Element {
   const { t } = useTranslation();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onSearch?.(e.target.value);
@@ -23,6 +24,7 @@ export default function SearchBar({ placeholder, onSearch }: SearchBarProps): JS
         type="text"
         className="search-bar__input"
         placeholder={placeholder || t('characters.search.placeholder')}
+        value={value ?? ''}
         onChange={handleChange}
         aria-label="Buscar personajes"
       />
