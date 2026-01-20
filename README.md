@@ -1,73 +1,50 @@
-# React + TypeScript + Vite
+# Rick & Morty Explorer (React + TypeScript + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SPA to explore Rick & Morty characters with a Citadel-inspired UI. Spanish README available in `README.es.md`.
 
-Currently, two official plugins are available:
+## Stack
+- React 18 + TypeScript on Vite.
+- SCSS modules with shared tokens (`src/styles/_variables.scss`, `_mixins.scss`).
+- Atomic Design (atoms, molecules, organisms) with page-level layouts.
+- i18next with ES/EN/ZH locales (`src/i18n.ts`, `src/locales/*`).
+- Vitest + Testing Library for unit tests.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Character catalog with live search and filters (status, gender, species).
+- Consistent UI: atoms (Button, Select, Container), organisms (`Header`, `PageHero`, `Footer`).
+- Themed footer with connection status, localized links, and responsive grid.
+- Light/dark themes via CSS variables; accessible focus states and subtle gradients.
+- Full localization for navigation, hero, filters, and footer.
 
-## React Compiler
+## Scripts
+- `npm run dev` — dev server with HMR.
+- `npm run build` — production build.
+- `npm run preview` — serve the build output.
+- `npm test` — run unit tests (Vitest).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Structure
+```
+src/
+  components/
+    atoms/       // Button, Select, Container, etc.
+    molecules/   // Navigation, SearchBar, HeaderActions, etc.
+    organisms/   // Header, PageHero, Footer
+  pages/
+    Characters/  // Page, layout, and character cards
+  styles/        // Design tokens and mixins
+  locales/       // es.json, en.json, zh.json
+  i18n.ts        // i18next configuration
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Testing
+- Coverage for key UI pieces: Header, Navigation, Footer, CharacterCard, filters, and data hooks.
+- i18n mocks ensure translated text in tests (`src/test/mocks/i18n.ts`).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Quick start
+1) `npm install`  
+2) `npm run dev` and open `http://localhost:5173`.  
+3) Try search and filters on Characters; switch language/theme in the header.  
+4) Check the footer for localized content and connection status.  
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## License
+Distributed under the MIT License. See `LICENSE` for details.
