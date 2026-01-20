@@ -1,11 +1,11 @@
+﻿import type { CharacterFilters } from '@/types/character';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import type { CharacterFilters } from '@/types/character';
-import { describe, expect, it, vi } from 'vitest';
 import { useState } from 'react';
-import CharactersSection from './CharactersSection';
+import { describe, expect, it, vi } from 'vitest';
+import CharacterLayout from './CharacterLayout';
 
-vi.mock('@pages/Characters/components/CharactersFilters/CharactersFilters', () => ({
+vi.mock('@pages/Characters/components/CharacterFiltersPanel/CharacterFiltersPanel', () => ({
   __esModule: true,
   default: ({
     filters,
@@ -13,7 +13,7 @@ vi.mock('@pages/Characters/components/CharactersFilters/CharactersFilters', () =
     onReset,
   }: {
     filters: CharacterFilters;
-    onFilterChange: (key: 'status', value: string) => void;
+    onFilterChange: (key: Exclude<keyof CharacterFilters, 'page'>, value: string) => void;
     onReset: () => void;
   }) => (
     <div>
@@ -28,25 +28,25 @@ vi.mock('@pages/Characters/components/CharactersFilters/CharactersFilters', () =
   ),
 }));
 
-vi.mock('@pages/Characters/components/CharacterResults/CharacterResults', () => ({
+vi.mock('@pages/Characters/components/CharacterList/CharacterList', () => ({
   __esModule: true,
   default: ({ filters }: { filters?: CharacterFilters }) => (
     <div data-testid="results">{JSON.stringify(filters ?? {})}</div>
   ),
 }));
 
-describe('CharactersSection', () => {
+describe('CharacterLayout', () => {
   const Wrapper = () => {
     const [filters, setFilters] = useState<CharacterFilters>({});
 
-    const handleFilterChange = (key: 'status', value: string) => {
+    const handleFilterChange = (key: Exclude<keyof CharacterFilters, 'page'>, value: string) => {
       setFilters(prev => ({ ...prev, [key]: value }));
     };
 
     const handleReset = () => setFilters({});
 
     return (
-      <CharactersSection
+      <CharacterLayout
         filters={filters}
         onFilterChange={handleFilterChange}
         onReset={handleReset}
@@ -54,7 +54,7 @@ describe('CharactersSection', () => {
     );
   };
 
-  it('pasa filtros iniciales vac�os al resultado', () => {
+  it('pasa filtros iniciales vacíos al resultado', () => {
     render(<Wrapper />);
 
     expect(screen.getByTestId('results').textContent).toBe('{}');

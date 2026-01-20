@@ -1,0 +1,24 @@
+@use '@styles/variables' as *;
+
+.character-layout__wrapper {
+  padding: $spacing-2xl 0;
+}
+
+.character-layout {
+  display: grid;
+  gap: $spacing-2xl;
+  grid-template-columns: 1fr;
+
+  &__filters {
+    grid-area: filters;
+  }
+
+  &__results {
+    grid-area: results;
+  }
+
+  @media (min-width: 900px) {
+    grid-template-columns: 320px 1fr;
+    grid-template-areas: 'filters results';
+  }
+}

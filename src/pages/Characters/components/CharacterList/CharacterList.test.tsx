@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import CharacterResults from './CharacterResults';
+import CharacterList from './CharacterList';
 
 vi.mock('@/hooks/useCharacters', () => ({
   useCharacters: vi.fn(),
@@ -8,7 +8,7 @@ vi.mock('@/hooks/useCharacters', () => ({
 
 import { useCharacters } from '@/hooks/useCharacters';
 
-describe('CharacterResults', () => {
+describe('CharacterList', () => {
   it('should render loading state', () => {
     vi.mocked(useCharacters).mockReturnValue({
       data: null,
@@ -16,7 +16,7 @@ describe('CharacterResults', () => {
       error: null,
     });
 
-    render(<CharacterResults />);
+    render(<CharacterList />);
 
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
@@ -28,7 +28,7 @@ describe('CharacterResults', () => {
       error: 'Failed to fetch characters',
     });
 
-    render(<CharacterResults />);
+    render(<CharacterList />);
 
     expect(screen.getByText('Error: Failed to fetch characters')).toBeInTheDocument();
   });
@@ -40,7 +40,7 @@ describe('CharacterResults', () => {
       error: null,
     });
 
-    render(<CharacterResults />);
+    render(<CharacterList />);
 
     expect(screen.getByText('No characters found')).toBeInTheDocument();
   });
@@ -70,9 +70,9 @@ describe('CharacterResults', () => {
       error: null,
     });
 
-    const { container } = render(<CharacterResults />);
+    const { container } = render(<CharacterList />);
 
-    expect(container.querySelector('.character-results__grid')).toBeInTheDocument();
+    expect(container.querySelector('.character-list__grid')).toBeInTheDocument();
   });
 
   it('should render character cards', () => {
@@ -100,12 +100,12 @@ describe('CharacterResults', () => {
       error: null,
     });
 
-    render(<CharacterResults />);
+    render(<CharacterList />);
 
     expect(screen.getByText('Rick Sanchez')).toBeInTheDocument();
   });
 
-  it('should have character-results class', () => {
+  it('should have character-list class', () => {
     vi.mocked(useCharacters).mockReturnValue({
       data: {
         info: { count: 1, pages: 1, next: null, prev: null },
@@ -130,9 +130,9 @@ describe('CharacterResults', () => {
       error: null,
     });
 
-    const { container } = render(<CharacterResults />);
+    const { container } = render(<CharacterList />);
 
-    expect(container.querySelector('.character-results')).toBeInTheDocument();
+    expect(container.querySelector('.character-list')).toBeInTheDocument();
   });
 
   it('should render multiple character cards', () => {
@@ -174,7 +174,7 @@ describe('CharacterResults', () => {
       error: null,
     });
 
-    render(<CharacterResults />);
+    render(<CharacterList />);
 
     expect(screen.getAllByRole('article')).toHaveLength(2);
   });

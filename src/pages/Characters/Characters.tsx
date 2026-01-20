@@ -7,9 +7,9 @@ import type { JSX } from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './Characters.scss';
-import CharactersSection from './components/CharactersSection/CharactersSection';
+import CharacterLayout from './components/CharacterLayout/CharacterLayout';
 
-export default function Characters(): JSX.Element {
+export default function CharactersPage(): JSX.Element {
   const { t } = useTranslation();
   const [filters, setFilters] = useState<CharacterFilters>({});
 
@@ -52,7 +52,7 @@ export default function Characters(): JSX.Element {
             value={filters.name ?? ''}
           />
         </PageHero>
-        <CharactersSection
+        <CharacterLayout
           filters={filters}
           onFilterChange={handleFilterChange}
           onReset={handleReset}

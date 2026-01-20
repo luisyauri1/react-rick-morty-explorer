@@ -4,28 +4,28 @@ import type { CharacterFilters } from '@/types/character';
 import Select from '@atoms/Select/Select';
 import type { JSX } from 'react';
 import { useTranslation } from 'react-i18next';
-import './CharactersFilters.scss';
+import './CharacterFiltersPanel.scss';
 
 type CharacterFilterKey = Exclude<keyof CharacterFilters, 'page'>;
 
-interface CharactersFiltersProps {
+interface CharacterFiltersProps {
   filters: CharacterFilters;
   onFilterChange: (key: CharacterFilterKey, value: string) => void;
   onReset: () => void;
 }
 
-export default function CharactersFilters({
+export default function CharacterFiltersPanel({
   filters,
   onFilterChange,
   onReset,
-}: CharactersFiltersProps): JSX.Element {
+}: CharacterFiltersProps): JSX.Element {
   const { t } = useTranslation();
 
   return (
-    <div className="characters-filters">
-      <h2 className="characters-filters__title">{t('filters.title')}</h2>
+    <div className="character-filters">
+      <h2 className="character-filters__title">{t('filters.title')}</h2>
 
-      <div className="characters-filters__content">
+      <div className="character-filters__content">
         <Select
           labelKey="filters.status.label"
           id="status"
@@ -60,7 +60,7 @@ export default function CharactersFilters({
         />
       </div>
 
-      <div className="characters-filters__actions">
+      <div className="character-filters__actions">
         <Button variant="outline" fullWidth onClick={onReset}>
           {t('filters.resetButton')}
         </Button>
