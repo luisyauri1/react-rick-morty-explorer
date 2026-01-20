@@ -11,11 +11,11 @@ describe('Navigation', () => {
     expect(nav).toBeInTheDocument();
   });
 
-  it('should render 4 navigation links', () => {
+  it('should render navigation link', () => {
     render(<Navigation />);
     const links = screen.getAllByRole('link', { hidden: true });
 
-    expect(links).toHaveLength(4);
+    expect(links).toHaveLength(1);
   });
 
   it('should render characters link', () => {
@@ -24,50 +24,11 @@ describe('Navigation', () => {
     expect(screen.getByText('PERSONAJES')).toBeInTheDocument();
   });
 
-  it('should render locations link', () => {
-    render(<Navigation />);
-
-    expect(screen.getByText('UBICACIONES')).toBeInTheDocument();
-  });
-
-  it('should render episodes link', () => {
-    render(<Navigation />);
-
-    expect(screen.getByText('EPISODIOS')).toBeInTheDocument();
-  });
-
-  it('should render favorites link', () => {
-    render(<Navigation />);
-
-    expect(screen.getByText('FAVORITOS')).toBeInTheDocument();
-  });
-
   it('should have correct href for characters', () => {
     render(<Navigation />);
     const link = screen.getByText('PERSONAJES').closest('a');
 
     expect(link).toHaveAttribute('href', '/');
-  });
-
-  it('should have correct href for locations', () => {
-    render(<Navigation />);
-    const link = screen.getByText('UBICACIONES').closest('a');
-
-    expect(link).toHaveAttribute('href', '/locations');
-  });
-
-  it('should have correct href for episodes', () => {
-    render(<Navigation />);
-    const link = screen.getByText('EPISODIOS').closest('a');
-
-    expect(link).toHaveAttribute('href', '/episodes');
-  });
-
-  it('should have correct href for favorites', () => {
-    render(<Navigation />);
-    const link = screen.getByText('FAVORITOS').closest('a');
-
-    expect(link).toHaveAttribute('href', '/favorites');
   });
 
   it('should mark first link as active', () => {

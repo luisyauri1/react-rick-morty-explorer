@@ -1,13 +1,13 @@
-﻿{
+{
   "header": {
     "logo": {
       "title": "C-137",
-      "subtitle": "情报枢纽",
-      "ariaLabel": "返回首页"
+      "subtitle": "智库",
+      "ariaLabel": "返回主页"
     },
     "nav": {
       "characters": "角色",
-      "locations": "地点",
+      "locations": "位置",
       "episodes": "剧集",
       "favorites": "收藏"
     },
@@ -19,14 +19,42 @@
       "darkMode": "深色模式"
     }
   },
+  "footer": {
+    "brand": {
+      "title": "Citadel Archive Project",
+      "description": "用于对有限曲线进行持续分析和监测，由银河联邦所有。"
+    },
+    "systems": {
+      "title": "系统",
+      "links": {
+        "directory": "主体目录",
+        "map": "行星地图",
+        "history": "事件记录"
+      }
+    },
+    "data": {
+      "title": "数据源",
+      "links": {
+        "api": "Rick and Morty API",
+        "docs": "核心文档",
+        "support": "多元宇宙支持"
+      }
+    },
+    "meta": {
+      "copyright": "© 2026 Federation Network Registry • C-137"
+    },
+    "status": {
+      "label": "Encrypted connection"
+    }
+  },
   "characters": {
     "hero": {
       "title": "分析",
       "highlight": "关键样本",
-      "description": "集中登记处，用于变体分类、生物状态监控，以及跨维度位置的实时跟踪。"
+      "description": "集中式注册表，用于变体分类、生物状态监控以及实时跨维度定位。"
     },
     "card": {
-      "lastLocation": "最后位置："
+      "lastLocation": "最新位置:"
     },
     "search": {
       "placeholder": "识别样本..."
@@ -34,7 +62,7 @@
   },
   "filters": {
     "title": "过滤模块",
-    "resetButton": "重置扫描器",
+    "resetButton": "重置扫描仪",
     "status": {
       "label": "状态",
       "placeholder": "所有状态",
@@ -57,7 +85,7 @@
       "alien": "外星人",
       "humanoid": "类人",
       "robot": "机器人",
-      "cronenberg": "克南伯格",
+      "cronenberg": "克隆伯格",
       "animal": "动物",
       "mythological": "神话生物",
       "poopybutthole": "Poopybutthole",

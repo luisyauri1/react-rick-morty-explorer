@@ -1,3 +1,4 @@
+import Footer from '@/components/organisms/Footer/Footer';
 import type { CharacterFilters } from '@/types/character';
 import HeroTitle from '@atoms/HeroTitle/HeroTitle';
 import SearchBar from '@molecules/SearchBar/SearchBar';
@@ -58,6 +59,7 @@ export default function CharactersPage(): JSX.Element {
           onReset={handleReset}
         />
       </main>
+      <Footer />
     </div>
   );
 }

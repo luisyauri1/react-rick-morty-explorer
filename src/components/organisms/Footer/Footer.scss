@@ -1,0 +1,182 @@
+@use 'sass:color';
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.footer {
+  background: linear-gradient(
+    180deg,
+    $color-gray-900 0%,
+    color.mix($color-gray-900, $color-gray-800, 70%) 100%
+  );
+  color: $color-gray-200;
+  padding: $spacing-3xl 0 $spacing-2xl;
+  font-size: $font-size-sm;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2xl;
+  }
+
+  &__grid {
+    display: grid;
+    gap: $spacing-2xl;
+    grid-template-columns: 1fr;
+
+    @include respond-to(md) {
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: $spacing-3xl;
+      align-items: start;
+    }
+  }
+
+  &__brand {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: $spacing-lg;
+    align-items: start;
+  }
+
+  &__badge {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: $border-radius-md;
+    background: $color-gray-800;
+    border: 1px solid $color-gray-700;
+    color: $color-gray-100;
+    display: grid;
+    place-items: center;
+    font-weight: $font-weight-extrabold;
+    font-size: $font-size-base;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  &__brand-content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__overline {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    color: $color-gray-100;
+  }
+
+  &__description {
+    margin: 0;
+    color: $color-gray-300;
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
+    max-width: 36rem;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__column-title {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: $font-size-xs;
+    color: $color-gray-400;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: $spacing-sm;
+  }
+
+  &__list-item {
+    margin: 0;
+  }
+
+  &__link {
+    color: $color-gray-100;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-size: $font-size-sm;
+    transition:
+      color $transition-base,
+      transform $transition-base;
+
+    &:hover {
+      color: $color-portal-green;
+      transform: translateX(1px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-portal-green;
+      outline-offset: 3px;
+      border-radius: $border-radius-sm;
+    }
+  }
+
+  &__link-icon {
+    font-size: $font-size-sm;
+    opacity: 0.9;
+  }
+
+  &__divider {
+    height: 1px;
+    background: color.mix($color-gray-700, $color-gray-900, 70%);
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    color: $color-gray-400;
+    font-size: $font-size-xs;
+
+    @include respond-to(md) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__copyright {
+    margin: 0;
+    letter-spacing: 0.02em;
+  }
+
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-weight: $font-weight-semibold;
+    color: $color-portal-green;
+    font-size: $font-size-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  &__status-indicator {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: $border-radius-full;
+    background: radial-gradient(circle at 30% 30%, color.mix($color-portal-green, $color-white, 20%), $color-portal-green);
+    border: 1px solid color.mix($color-portal-green, $color-gray-100, 35%);
+    box-shadow:
+      0 0 0 2px color.mix($color-portal-green, $color-gray-900, 85%),
+      0 0 10px rgba(16, 185, 129, 0.25);
+  }
+
+  &__status-label {
+    color: $color-gray-200;
+    font-size: $font-size-xs;
+  }
+}

@@ -41,7 +41,7 @@ describe('CharacterCard', () => {
   it('should render character status and species', () => {
     render(<CharacterCard character={mockCharacter} />);
 
-    expect(screen.getByText('Alive - Human')).toBeInTheDocument();
+    expect(screen.getByText('Human')).toBeInTheDocument();
   });
 
   it('should render character last location', () => {
@@ -65,26 +65,24 @@ describe('CharacterCard', () => {
     );
   });
 
-  it('should render status indicator with alive class', () => {
+  it('should render status pill with alive class', () => {
     const { container } = render(<CharacterCard character={mockCharacter} />);
 
-    expect(container.querySelector('.character-card__status-indicator--alive')).toBeInTheDocument();
+    expect(container.querySelector('.character-card__pill--alive')).toBeInTheDocument();
   });
 
-  it('should render status indicator with dead class for dead character', () => {
+  it('should render status pill with dead class for dead character', () => {
     const deadCharacter = { ...mockCharacter, status: 'Dead' as const };
     const { container } = render(<CharacterCard character={deadCharacter} />);
 
-    expect(container.querySelector('.character-card__status-indicator--dead')).toBeInTheDocument();
+    expect(container.querySelector('.character-card__pill--dead')).toBeInTheDocument();
   });
 
-  it('should render status indicator with unknown class for unknown status', () => {
+  it('should render status pill with unknown class for unknown status', () => {
     const unknownCharacter = { ...mockCharacter, status: 'unknown' as const };
     const { container } = render(<CharacterCard character={unknownCharacter} />);
 
-    expect(
-      container.querySelector('.character-card__status-indicator--unknown')
-    ).toBeInTheDocument();
+    expect(container.querySelector('.character-card__pill--unknown')).toBeInTheDocument();
   });
 
   it('should render as article element', () => {

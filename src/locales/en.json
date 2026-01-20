@@ -19,6 +19,34 @@
       "darkMode": "Dark mode"
     }
   },
+  "footer": {
+    "brand": {
+      "title": "Citadel Archive Project",
+      "description": "Developed for constant analysis and monitoring of the Finite Curve. Property of the Galactic Federation."
+    },
+    "systems": {
+      "title": "Systems",
+      "links": {
+        "directory": "Subject Directory",
+        "map": "Planet Map",
+        "history": "Event Log"
+      }
+    },
+    "data": {
+      "title": "Data source",
+      "links": {
+        "api": "Rick and Morty API",
+        "docs": "Core Documentation",
+        "support": "Multiversal Support"
+      }
+    },
+    "meta": {
+      "copyright": "© 2026 Federation Network Registry • C-137"
+    },
+    "status": {
+      "label": "Encrypted connection"
+    }
+  },
   "characters": {
     "hero": {
       "title": "Analysis of",

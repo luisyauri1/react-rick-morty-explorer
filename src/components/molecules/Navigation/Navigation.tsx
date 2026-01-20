@@ -12,21 +12,6 @@ export default function Navigation() {
             {t('header.nav.characters')}
           </a>
         </li>
-        <li className="navigation__item">
-          <a href="/locations" className="navigation__link">
-            {t('header.nav.locations')}
-          </a>
-        </li>
-        <li className="navigation__item">
-          <a href="/episodes" className="navigation__link">
-            {t('header.nav.episodes')}
-          </a>
-        </li>
-        <li className="navigation__item">
-          <a href="/favorites" className="navigation__link">
-            {t('header.nav.favorites')}
-          </a>
-        </li>
       </ul>
     </nav>
   );

@@ -1,4 +1,4 @@
-﻿{
+{
   "header": {
     "logo": {
       "title": "C-137",
@@ -17,6 +17,34 @@
       "changeTheme": "Cambiar tema",
       "lightMode": "Tema claro",
       "darkMode": "Tema oscuro"
+    }
+  },
+  "footer": {
+    "brand": {
+      "title": "Citadel Archive Project",
+      "description": "Desarrollado para el análisis y monitoreo constante de la Curva Finita Central. Propiedad de la Federación Galáctica."
+    },
+    "systems": {
+      "title": "Sistemas",
+      "links": {
+        "directory": "Directorio de Sujetos",
+        "map": "Mapa de Planetas",
+        "history": "Historial de Eventos"
+      }
+    },
+    "data": {
+      "title": "Fuente de datos",
+      "links": {
+        "api": "Rick and Morty API",
+        "docs": "Documentación Core",
+        "support": "Soporte Multiversal"
+      }
+    },
+    "meta": {
+      "copyright": "© 2026 Federation Network Registry • C-137"
+    },
+    "status": {
+      "label": "Encrypted connection"
     }
   },
   "characters": {
