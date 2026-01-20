@@ -3,7 +3,10 @@ import type { ApiResponse, Character, CharacterFilters } from '@/types/character
 const BASE_URL = 'https://rickandmortyapi.com/api';
 
 export const rickAndMortyApi = {
-  async getCharacters(filters?: CharacterFilters): Promise<ApiResponse<Character>> {
+  async getCharacters(
+    filters?: CharacterFilters,
+    signal?: AbortSignal
+  ): Promise<ApiResponse<Character>> {
     const params = new URLSearchParams();
 
     if (filters) {
@@ -13,7 +16,7 @@ export const rickAndMortyApi = {
     }
 
     const url = `${BASE_URL}/character${params.toString() ? `?${params}` : ''}`;
-    const response = await fetch(url);
+    const response = await fetch(url, { signal });
 
     if (!response.ok) {
       throw new Error('Failed to fetch characters');

@@ -8,20 +8,28 @@ export function useCharacters(filters?: CharacterFilters) {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    const controller = new AbortController();
+
     const fetchCharacters = async () => {
       try {
         setLoading(true);
         setError(null);
-        const result = await rickAndMortyApi.getCharacters(filters);
+        const result = await rickAndMortyApi.getCharacters(filters, controller.signal);
         setData(result);
       } catch (err) {
+        if (controller.signal.aborted) return;
         setError(err instanceof Error ? err.message : 'Unknown error');
       } finally {
-        setLoading(false);
+        if (!controller.signal.aborted) {
+          setLoading(false);
+        }
       }
     };
 
     fetchCharacters();
+    return () => {
+      controller.abort();
+    };
   }, [filters]);
 
   return { data, loading, error };

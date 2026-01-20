@@ -112,7 +112,7 @@ describe('useCharacters', () => {
     renderHook(() => useCharacters(filters));
 
     await waitFor(() => {
-      expect(rickAndMortyApi.getCharacters).toHaveBeenCalledWith(filters);
+      expect(rickAndMortyApi.getCharacters).toHaveBeenCalledWith(filters, expect.any(AbortSignal));
     });
   });
 
