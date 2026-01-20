@@ -7,7 +7,7 @@
     grid-template-columns: 1fr;
     gap: $spacing-lg;
 
-    @include respond-to(sm) {
+    @include respond-to(xs) {
       grid-template-columns: repeat(2, 1fr);
     }
 
@@ -16,7 +16,7 @@
     }
 
     @include respond-to(xl) {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 

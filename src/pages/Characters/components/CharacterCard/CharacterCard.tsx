@@ -22,19 +22,18 @@ export default function CharacterCard({ character }: CharacterCardProps): JSX.El
       </div>
       <div className="character-card__content">
         <h3 className="character-card__name">{character.name}</h3>
-        <div className="character-card__info">
-          <div className="character-card__status">
-            <span
-              className={`character-card__status-indicator character-card__status-indicator--${character.status.toLowerCase()}`}
-            />
-            <span>
-              {character.status} - {character.species}
-            </span>
-          </div>
-          <div className="character-card__location">
-            <span className="character-card__label">{t('characters.card.lastLocation')}</span>
-            <span className="character-card__value">{character.location.name}</span>
-          </div>
+        <div className="character-card__meta">
+          <span
+            className={`character-card__pill character-card__pill--${character.status.toLowerCase()}`}
+          >
+            <span className="character-card__pill-dot" />
+            {character.status}
+          </span>
+          <span className="character-card__meta-text">{character.species}</span>
+        </div>
+        <div className="character-card__location">
+          <span className="character-card__label">{t('characters.card.lastLocation')}</span>
+          <span className="character-card__value">{character.location.name}</span>
         </div>
       </div>
     </article>

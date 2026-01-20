@@ -27,7 +27,7 @@
   }
 
   @include respond-to(md) {
-    grid-template-columns: minmax(280px, 340px) 1fr;
+    grid-template-columns: minmax(280px, 280px) 1fr;
     grid-template-areas: 'filters results';
   }
 }
