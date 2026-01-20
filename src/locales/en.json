@@ -25,6 +25,9 @@
       "highlight": "Critical Specimens",
       "description": "Centralized registry for variant classification, biological status monitoring, and real-time interdimensional location tracking."
     },
+    "card": {
+      "lastLocation": "Last location:"
+    },
     "search": {
       "placeholder": "Identify specimen..."
     }

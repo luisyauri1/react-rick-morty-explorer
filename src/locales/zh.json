@@ -1,20 +1,20 @@
-{
+﻿{
   "header": {
     "logo": {
       "title": "C-137",
-      "subtitle": "情报中心",
-      "ariaLabel": "前往主页"
+      "subtitle": "情报枢纽",
+      "ariaLabel": "返回首页"
     },
     "nav": {
       "characters": "角色",
-      "locations": "位置",
+      "locations": "地点",
       "episodes": "剧集",
-      "favorites": "收藏夹"
+      "favorites": "收藏"
     },
     "actions": {
-      "changeLanguage": "更改语言",
+      "changeLanguage": "切换语言",
       "selectLanguage": "选择语言",
-      "changeTheme": "更改主题",
+      "changeTheme": "切换主题",
       "lightMode": "浅色模式",
       "darkMode": "深色模式"
     }
@@ -23,7 +23,10 @@
     "hero": {
       "title": "分析",
       "highlight": "关键样本",
-      "description": "用于变体分类、生物状态监测和实时跨维度定位追踪的集中登记系统。"
+      "description": "集中登记处，用于变体分类、生物状态监控，以及跨维度位置的实时跟踪。"
+    },
+    "card": {
+      "lastLocation": "最后位置："
     },
     "search": {
       "placeholder": "识别样本..."
@@ -31,11 +34,11 @@
   },
   "filters": {
     "title": "过滤模块",
-    "resetButton": "重置扫描仪",
+    "resetButton": "重置扫描器",
     "status": {
       "label": "状态",
       "placeholder": "所有状态",
-      "alive": "活着",
+      "alive": "存活",
       "dead": "死亡",
       "unknown": "未知"
     },
@@ -54,10 +57,10 @@
       "alien": "外星人",
       "humanoid": "类人",
       "robot": "机器人",
-      "cronenberg": "克隆伯格",
+      "cronenberg": "克南伯格",
       "animal": "动物",
       "mythological": "神话生物",
-      "poopybutthole": "屁眼先生",
+      "poopybutthole": "Poopybutthole",
       "disease": "疾病"
     }
   }

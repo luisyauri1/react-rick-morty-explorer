@@ -1,4 +1,4 @@
-{
+﻿{
   "header": {
     "logo": {
       "title": "C-137",
@@ -25,12 +25,15 @@
       "highlight": "Especímenes Críticos",
       "description": "Registro centralizado para la clasificación de variantes, monitoreo de estados biológicos y localización interdimensional en tiempo real."
     },
+    "card": {
+      "lastLocation": "Última ubicación:"
+    },
     "search": {
       "placeholder": "Identificar espécimen..."
     }
   },
   "filters": {
-    "title": "Módulos Filtrado",
+    "title": "Módulos de Filtrado",
     "resetButton": "Reiniciar Escáner",
     "status": {
       "label": "Estado",

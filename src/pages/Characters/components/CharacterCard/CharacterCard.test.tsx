@@ -1,3 +1,4 @@
+import '@/test/mocks/i18n';
 import type { Character } from '@/types/character';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';

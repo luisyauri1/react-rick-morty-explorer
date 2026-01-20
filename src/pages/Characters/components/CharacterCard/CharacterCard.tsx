@@ -1,5 +1,6 @@
 import type { Character } from '@/types/character';
 import type { JSX } from 'react';
+import { useTranslation } from 'react-i18next';
 import './CharacterCard.scss';
 
 interface CharacterCardProps {
@@ -7,6 +8,8 @@ interface CharacterCardProps {
 }
 
 export default function CharacterCard({ character }: CharacterCardProps): JSX.Element {
+  const { t } = useTranslation();
+
   return (
     <article className="character-card">
       <div className="character-card__image-wrapper">
@@ -29,7 +32,7 @@ export default function CharacterCard({ character }: CharacterCardProps): JSX.El
             </span>
           </div>
           <div className="character-card__location">
-            <span className="character-card__label">Last location:</span>
+            <span className="character-card__label">{t('characters.card.lastLocation')}</span>
             <span className="character-card__value">{character.location.name}</span>
           </div>
         </div>
