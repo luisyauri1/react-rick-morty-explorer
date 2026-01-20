@@ -1,10 +1,15 @@
 import { useCharacters } from '@/hooks/useCharacters';
+import type { CharacterFilters } from '@/types/character';
 import CharacterCard from '@pages/Characters/components/CharacterCard/CharacterCard';
 import type { JSX } from 'react';
 import './CharacterResults.scss';
 
-export default function CharacterResults(): JSX.Element {
-  const { data, loading, error } = useCharacters();
+interface CharacterResultsProps {
+  filters?: CharacterFilters;
+}
+
+export default function CharacterResults({ filters }: CharacterResultsProps): JSX.Element {
+  const { data, loading, error } = useCharacters(filters);
 
   if (loading) {
     return <div className="character-results__loading">Loading...</div>;

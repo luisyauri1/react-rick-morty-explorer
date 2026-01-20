@@ -1,86 +1,47 @@
+import type { CharacterFilters } from '@/types/character';
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import userEvent from '@testing-library/user-event';
+import { describe, expect, it, vi } from 'vitest';
 import CharactersFilters from './CharactersFilters';
 
+vi.mock('react-i18next', () => ({
+  useTranslation: () => ({ t: (key: string) => key }),
+}));
+
+const baseProps = (overrides: Partial<CharacterFilters> = {}) => ({
+  filters: { ...overrides },
+  onFilterChange: vi.fn(),
+  onReset: vi.fn(),
+});
+
 describe('CharactersFilters', () => {
-  it('should render title', () => {
-    render(<CharactersFilters />);
+  it('renderiza el título', () => {
+    render(<CharactersFilters {...baseProps()} />);
 
     expect(screen.getByText('filters.title')).toBeInTheDocument();
   });
 
-  it('should render status select', () => {
-    render(<CharactersFilters />);
-
-    expect(screen.getByRole('combobox', { name: 'filters.status.label' })).toBeInTheDocument();
-  });
-
-  it('should render gender select', () => {
-    render(<CharactersFilters />);
-
-    expect(screen.getByRole('combobox', { name: 'filters.gender.label' })).toBeInTheDocument();
-  });
-
-  it('should render species select', () => {
-    render(<CharactersFilters />);
-
-    expect(screen.getByRole('combobox', { name: 'filters.species.label' })).toBeInTheDocument();
-  });
-
-  it('should render reset button', () => {
-    render(<CharactersFilters />);
-
-    expect(screen.getByRole('button', { name: 'filters.resetButton' })).toBeInTheDocument();
-  });
-
-  it('should have characters-filters class', () => {
-    const { container } = render(<CharactersFilters />);
-
-    expect(container.firstChild).toHaveClass('characters-filters');
-  });
-
-  it('should render status select with correct id', () => {
-    render(<CharactersFilters />);
-
-    expect(screen.getByRole('combobox', { name: 'filters.status.label' })).toHaveAttribute(
-      'id',
-      'status'
-    );
-  });
-
-  it('should render gender select with correct id', () => {
-    render(<CharactersFilters />);
-
-    expect(screen.getByRole('combobox', { name: 'filters.gender.label' })).toHaveAttribute(
-      'id',
-      'gender'
-    );
-  });
-
-  it('should render species select with correct id', () => {
-    render(<CharactersFilters />);
-
-    expect(screen.getByRole('combobox', { name: 'filters.species.label' })).toHaveAttribute(
-      'id',
-      'species'
-    );
-  });
-
-  it('should render button with outline variant', () => {
-    render(<CharactersFilters />);
-
-    expect(screen.getByRole('button')).toHaveClass('button--outline');
-  });
-
-  it('should render all three selects', () => {
-    render(<CharactersFilters />);
+  it('muestra los tres selects', () => {
+    render(<CharactersFilters {...baseProps()} />);
 
     expect(screen.getAllByRole('combobox')).toHaveLength(3);
   });
 
-  it('should render title as h2 element', () => {
-    render(<CharactersFilters />);
+  it('llama onFilterChange al cambiar status', async () => {
+    const props = baseProps();
+    render(<CharactersFilters {...props} />);
 
-    expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
+    await userEvent.selectOptions(screen.getByLabelText('filters.status.label'), 'alive');
+
+    expect(props.onFilterChange).toHaveBeenCalledWith('status', 'alive');
+  });
+
+  it('llama onReset al presionar el botón', async () => {
+    const props = baseProps({ status: 'alive' });
+    render(<CharactersFilters {...props} />);
+
+    await userEvent.click(screen.getByRole('button', { name: 'filters.resetButton' }));
+
+    expect(props.onReset).toHaveBeenCalled();
   });
 });

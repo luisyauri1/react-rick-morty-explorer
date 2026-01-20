@@ -1,11 +1,24 @@
 import Button from '@/components/atoms/Button/Button';
 import { FILTER_OPTIONS } from '@/constants/filterOptions';
+import type { CharacterFilters } from '@/types/character';
 import Select from '@atoms/Select/Select';
 import type { JSX } from 'react';
 import { useTranslation } from 'react-i18next';
 import './CharactersFilters.scss';
 
-export default function CharactersFilters(): JSX.Element {
+type CharacterFilterKey = Exclude<keyof CharacterFilters, 'page'>;
+
+interface CharactersFiltersProps {
+  filters: CharacterFilters;
+  onFilterChange: (key: CharacterFilterKey, value: string) => void;
+  onReset: () => void;
+}
+
+export default function CharactersFilters({
+  filters,
+  onFilterChange,
+  onReset,
+}: CharactersFiltersProps): JSX.Element {
   const { t } = useTranslation();
 
   return (
@@ -20,6 +33,8 @@ export default function CharactersFilters(): JSX.Element {
           options={FILTER_OPTIONS.status}
           placeholderKey="filters.status.placeholder"
           size="sm"
+          value={filters.status ?? ''}
+          onChange={event => onFilterChange('status', event.target.value)}
         />
 
         <Select
@@ -29,6 +44,8 @@ export default function CharactersFilters(): JSX.Element {
           options={FILTER_OPTIONS.gender}
           placeholderKey="filters.gender.placeholder"
           size="sm"
+          value={filters.gender ?? ''}
+          onChange={event => onFilterChange('gender', event.target.value)}
         />
 
         <Select
@@ -38,11 +55,13 @@ export default function CharactersFilters(): JSX.Element {
           options={FILTER_OPTIONS.species}
           placeholderKey="filters.species.placeholder"
           size="sm"
+          value={filters.species ?? ''}
+          onChange={event => onFilterChange('species', event.target.value)}
         />
       </div>
 
       <div className="characters-filters__actions">
-        <Button variant="outline" fullWidth>
+        <Button variant="outline" fullWidth onClick={onReset}>
           {t('filters.resetButton')}
         </Button>
       </div>

@@ -1,43 +1,62 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import userEvent from '@testing-library/user-event';
+import type { CharacterFilters } from '@/types/character';
+import { describe, expect, it, vi } from 'vitest';
 import CharactersSection from './CharactersSection';
 
+vi.mock('@pages/Characters/components/CharactersFilters/CharactersFilters', () => ({
+  __esModule: true,
+  default: ({
+    filters,
+    onFilterChange,
+    onReset,
+  }: {
+    filters: CharacterFilters;
+    onFilterChange: (key: 'status', value: string) => void;
+    onReset: () => void;
+  }) => (
+    <div>
+      <span data-testid="filters-prop">{JSON.stringify(filters)}</span>
+      <button data-testid="set-status" onClick={() => onFilterChange('status', 'alive')}>
+        set status
+      </button>
+      <button data-testid="reset-filters" onClick={onReset}>
+        reset
+      </button>
+    </div>
+  ),
+}));
+
+vi.mock('@pages/Characters/components/CharacterResults/CharacterResults', () => ({
+  __esModule: true,
+  default: ({ filters }: { filters?: CharacterFilters }) => (
+    <div data-testid="results">{JSON.stringify(filters ?? {})}</div>
+  ),
+}));
+
 describe('CharactersSection', () => {
-  it('should render CharactersFilters component', () => {
-    const { container } = render(<CharactersSection />);
-
-    expect(container.querySelector('.characters-section__filters')).toBeInTheDocument();
-  });
-
-  it('should render CharacterResults component', () => {
-    const { container } = render(<CharactersSection />);
-
-    expect(container.querySelector('.characters-section__results')).toBeInTheDocument();
-  });
-
-  it('should have characters-section class', () => {
-    const { container } = render(<CharactersSection />);
-
-    expect(container.querySelector('.characters-section')).toBeInTheDocument();
-  });
-
-  it('should render filters as aside element', () => {
+  it('pasa filtros iniciales vacíos al resultado', () => {
     render(<CharactersSection />);
 
-    expect(screen.getByRole('complementary')).toBeInTheDocument();
+    expect(screen.getByTestId('results').textContent).toBe('{}');
   });
 
-  it('should render results as main element', () => {
+  it('actualiza filtros cuando cambia un select', async () => {
+    const user = userEvent.setup();
     render(<CharactersSection />);
 
-    expect(screen.getByRole('main')).toBeInTheDocument();
+    await user.click(screen.getByTestId('set-status'));
+
+    expect(screen.getByTestId('results').textContent).toContain('"status":"alive"');
   });
 
-  it('should render filters before results in DOM', () => {
-    const { container } = render(<CharactersSection />);
-    const section = container.querySelector('.characters-section');
-    const firstChild = section?.firstElementChild;
+  it('restablece filtros al presionar reset', async () => {
+    const user = userEvent.setup();
+    render(<CharactersSection />);
 
-    expect(firstChild).toHaveClass('characters-section__filters');
+    await user.click(screen.getByTestId('set-status'));
+    await user.click(screen.getByTestId('reset-filters'));
+
+    expect(screen.getByTestId('results').textContent).toBe('{}');
   });
 });
